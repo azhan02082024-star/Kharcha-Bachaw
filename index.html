@@ -1,0 +1,45 @@
+<!-- FIX 1: BILL LIST ME PHOTO + DISLIKE ADD -->
+<script>
+// ... aapka same code ...
+
+function render(){
+ document.getElementById('totalBal').innerText='Rs '+totalBal; // totalBal ab total kharcha nahi, bacha hua paisa hai
+ document.getElementById('coinBal').innerText=coinBal+' Coins';
+ let used=(JSON.stringify(localStorage).length/1024).toFixed(1);
+ document.getElementById('storageInfo').innerText=`Storage: ${used}KB / 5120KB | Auto-Delete 7 Din ON ✅`;
+
+ // FIX: Photo + Like/Dislike
+ document.getElementById('billList').innerHTML=bills.map(b=>`
+  <div style="border-bottom:1px solid #eee;padding:8px 0;display:flex;gap:8px">
+   ${b.img ? `<img src="${b.img}" style="width:50px;height:50px;border-radius:8px;object-fit:cover">` : ''}
+   <div style="flex:1">
+    <div class="flex"><b>${b.company}</b><span>Rs ${b.amt}</span></div>
+    <div class="small">${new Date(b.date).toLocaleDateString()} ${b.rate||''} ${b.rating||''}</div>
+    <div class="small">👍 ${b.likes||0} <a href="#" onclick="like(${b.id});return false">Like</a> | 👎 ${b.dislikes||0} <a href="#" onclick="dislike(${b.id});return false">Dislike</a> | 👁️ ${b.views||1} Views</div>
+   </div>
+  </div>`).join('') || '<div class="small">Koi bill nahi - Last 7 din ka yahan ayega</div>';
+ 
+ // ... baki same ...
+}
+
+function like(id){ let b=bills.find(x=>String(x.id)===String(id)); if(b){b.likes=(b.likes||0)+1; b.views=(b.views||0)+1; saveAll();} }
+function dislike(id){ let b=bills.find(x=>String(x.id)===String(id)); if(b){b.dislikes=(b.dislikes||0)+1; saveAll();} }
+
+// FIX: Storage Full Alert
+function saveAll(){
+ try{
+  localStorage.setItem('v17_bills', JSON.stringify(bills));
+  localStorage.setItem('v17_khata', JSON.stringify(khata));
+  localStorage.setItem('v17_coins', JSON.stringify(coins));
+  localStorage.setItem('v17_total', totalBal);
+  localStorage.setItem('v17_coinBal', coinBal);
+  render();
+ }catch(e){
+  alert('Storage Full! Purane bills auto-delete ho jayenge. PDF Download kar lo backup ke liye!');
+  autoDeleteOld(); // force delete
+  // try again after delete
+  localStorage.setItem('v17_bills', JSON.stringify(bills.slice(0,10)));
+  render();
+ }
+}
+</script>
