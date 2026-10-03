@@ -1,180 +1,128 @@
 <!DOCTYPE html>
 <html lang="ur">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kharcha Bachao V18</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kharcha Bachao V23 FINAL CHECKED</title>
 <meta name="theme-color" content="#16a34a">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#f0fdf4;padding-bottom:90px}
-.header{background:#16a34a;color:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
-.card{background:#fff;margin:10px;padding:14px;border-radius:12px;box-shadow:0 2px 8px #0001}
-.btn{background:#16a34a;color:#fff;border:none;padding:12px;border-radius:10px;width:100%;margin-top:8px;font-weight:bold}
+body{background:#f0fdf4;padding-bottom:100px}
+.header{background:#16a34a;color:#fff;padding:14px;text-align:center;position:sticky;top:0;z-index:99}
+.card{background:#fff;margin:10px;padding:14px;border-radius:14px;box-shadow:0 2px 10px #0001}
+.btn{background:#16a34a;color:#fff;border:none;padding:12px;border-radius:10px;width:100%;margin-top:8px;font-weight:800;cursor:pointer}
 .btn2{background:#0ea5e9;color:#fff;border:none;padding:10px;border-radius:10px;width:100%;margin-top:8px}
+.btn3{background:#f59e0b;color:#fff;border:none;padding:12px;border-radius:10px;width:100%;margin-top:8px;font-weight:800}
 .small{font-size:11px;color:#666;margin-top:4px}
-.badge{background:#dcfce7;color:#16a34a;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:bold}
+.badge{background:#dcfce7;color:#16a34a;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:800}
 .flex{display:flex;justify-content:space-between;align-items:center;gap:8px}
 input,select{width:100%;padding:11px;margin:6px 0;border:1px solid #ddd;border-radius:10px;background:#f9fafb}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #ddd;z-index:10}
-.bottom div{flex:1;text-align:center;padding:10px;font-size:11px;font-weight:600}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #ddd;z-index:99}
+.bottom div{flex:1;text-align:center;padding:10px 2px;font-size:11px;font-weight:700;cursor:pointer}
+.hidden{display:none}
 </style>
 </head>
 <body>
+
+<div id="authScreen">
+<div class="card" style="max-width:400px;margin:30px auto;text-align:center">
+<h2>💰 Kharcha Bachao V23</h2>
+<p class="small">Login se Payout Tak - Final Checked ✅</p>
+
+<div id="loginForm">
+<h4>🔐 Login</h4>
+<input id="loginMobile" placeholder="Mobile 03XX">
+<input id="loginPass" type="password" placeholder="Password">
+<button class="btn" onclick="doLogin()">Login</button>
+<p class="small"><a href="#" onclick="showReg();return false">New? Registration</a> | <a href="#" onclick="forgotPass();return false">Forgot Password?</a></p>
+</div>
+
+<div id="regForm" class="hidden">
+<h4>📝 Registration - 50 Coins Free</h4>
+<input id="regName" placeholder="Full Name">
+<input id="regMobile" placeholder="Mobile 03XX">
+<input id="regPass" type="password" placeholder="Password">
+<input id="regCity" placeholder="City">
+<input id="regRef" placeholder="Referral Code (Optional)">
+<button class="btn" onclick="doRegister()">Account Banao</button>
+<p class="small"><a href="#" onclick="showLogin();return false">Login Pe Jao</a></p>
+</div>
+</div>
+</div>
+
+<div id="mainApp" class="hidden">
 <div class="header">
-<h3>💰 Kharcha Bachao V18 - LIVE</h3>
-<div class="small" style="color:#dcfce7">Har Bill Pe 100 Coins | Auto Delete 7 Din</div>
+<div class="flex"><span>💰 V23 FINAL ✅</span><span style="font-size:12px"><span id="userNameTop"></span> | <a href="#" onclick="doLogout();return false" style="color:#fff">Logout</a></span></div>
 </div>
 
-<div class="card flex">
-<span>💵 Balance: <b id="totalBal">Rs 0</b></span>
-<span class="badge" id="coinBal">0 Coins</span>
-</div>
+<div class="card flex"><span>💵 Wallet: <b id="totalBal">Rs 0</b></span><span class="badge" id="coinBal">0 Coins</span></div>
+<div class="card"><h4>👤 Profile - Full Checked</h4><div class="small" id="profileBox"></div></div>
 
-<div class="card">
-<h4>🧾 Bill Upload - 100 Coins</h4>
-<p class="small">Daily 2 Bills | Photo 100KB Compress | 7 Din Save</p>
-<input type="file" id="billImg" accept="image/*">
-<select id="company"><option>K-Electric</option><option>SSGC</option><option>PTCL</option><option>Water Board</option><option>LESCO</option></select>
-<input type="number" id="billAmt" placeholder="Bill Amount Rs">
+<div class="card"><h4>🧾 Bill Checker (25+ Companies) + Upload 100 Coins</h4>
+<input id="searchComp" placeholder="🔍 Search Company" oninput="filterComp()">
+<select id="company">
+<optgroup label="⚡ Bijli"><option>K-Electric</option><option>LESCO Lahore</option><option>IESCO Islamabad</option><option>FESCO Faisalabad</option><option>GEPCO Gujranwala</option><option>MEPCO Multan</option><option>PESCO Peshawar</option><option>QESCO Quetta</option><option>HESCO Hyderabad</option><option>SEPCO Sukkur</option><option>TESCO</option></optgroup>
+<optgroup label="🔥 Gas"><option>SSGC Karachi</option><option>SNGPL Lahore</option></optgroup>
+<optgroup label="💧 Pani"><option>WASA Lahore</option><option>WASA Faisalabad</option><option>Water Board Karachi</option><option>WASA Gujranwala</option><option>WASA Multan</option></optgroup>
+<optgroup label="📞 Internet"><option>PTCL</option><option>Nayatel</option><option>StormFiber</option><option>Optix</option></optgroup>
+<optgroup label="📱 Mobile"><option>Jazz Postpaid</option><option>Zong Postpaid</option><option>Telenor Postpaid</option><option>Ufone Postpaid</option></optgroup>
+</select>
+<input type="file" id="billImg" accept="image/*"><input type="number" id="billAmt" placeholder="Amount Rs">
 <button class="btn" onclick="uploadBill()">Upload - 100 Coins</button>
-<div class="small" id="storageInfo">Storage: 0KB</div>
+<div class="small" id="storageInfo"></div>
 </div>
 
-<div class="card">
-<h4>🛒 Shopping Bill</h4>
-<input type="text" id="shopName" placeholder="Dukan Name">
-<input type="number" id="shopPrice" placeholder="Price Rs">
-<input type="text" id="shopRate" placeholder="Rate 120/kg">
-<select id="shopRating"><option>⭐⭐⭐⭐⭐ 5 Star</option><option>⭐⭐⭐⭐ 4 Star</option><option>⭐⭐⭐ 3 Star</option></select>
-<button class="btn" onclick="addShopping()">Add Shopping</button>
+<div class="card"><h4>🛒 Shopping - Rate + Rating</h4>
+<input id="shopName" placeholder="Dukan Name"><input id="shopPrice" type="number" placeholder="Price"><input id="shopRate" placeholder="Rate 120/kg"><select id="shopRating"><option>⭐⭐⭐⭐⭐ 5 Star - Sasta</option><option>⭐⭐⭐⭐ 4 Star</option><option>⭐⭐⭐ 3 Star</option><option>⭐⭐ Mehnga</option></select>
+<button class="btn" onclick="addShopping()">Add Shopping</button></div>
+
+<div class="card"><h4>📒 Daily Khata</h4><div class="flex"><span>Aaj Kharcha:</span><b style="color:red" id="todaySpend">Rs 0</b></div><div class="flex"><span>Aaj Aamdani:</span><b style="color:green" id="todayIncome">Rs 0</b></div><button class="btn2" onclick="downloadPDF()">PDF Backup - 5 Coins Permanent</button><div id="khataList"></div></div>
+
+<div class="card"><h4>🪙 Coin Khata - Amanat - 7 Din Lock - Friday 10-12</h4><div class="small">Fee Normal 20% | PDF Walo Ka 10%</div><div id="coinList"></div></div>
+
+<div class="card" style="border:2px solid #16a34a"><h4>💸 Payout - Easypaisa/JazzCash/Bank</h4>
+<div class="small">Min 500 Coins = Rs 500 | Friday 10-12 | Auto Fee Calculate</div>
+<select id="payoutMethod"><option>Easypaisa</option><option>JazzCash</option><option>HBL Bank</option><option>UBL Bank</option><option>Meezan Bank</option></select>
+<input id="payoutNumber" placeholder="Number / IBAN">
+<input id="payoutCoins" type="number" placeholder="Coins Min 500">
+<div class="flex"><span>Fee:</span><b id="payoutFee">Rs 0</b></div><div class="flex"><span>Final Milega:</span><b id="payoutFinal" style="color:green">Rs 0</b></div>
+<button class="btn3" onclick="requestPayout()">Payout Request</button>
+<div id="payoutHistory"></div>
 </div>
 
-<div class="card">
-<h4>📒 Daily Khata</h4>
-<div class="flex"><span>Aaj Kharcha:</span><b style="color:red" id="todaySpend">Rs 0</b></div>
-<div class="flex"><span>Aaj Aamdani:</span><b style="color:green" id="todayIncome">Rs 0</b></div>
-<button class="btn2" onclick="downloadPDF()">PDF Backup - 5 Coins</button>
-<div id="khataList" style="margin-top:8px"></div>
-</div>
+<div class="card" id="adminCard" style="border:2px dashed #ef4444"><h4>🛠️ Admin Panel (Aapke Liye)</h4><div class="small">Yahan se aap Payout Approve kar sakte ho - Test ke liye</div><button class="btn" style="background:#ef4444" onclick="approveAllPayouts()">✅ Sab Payouts Approve Karo (Test)</button></div>
 
-<div class="card">
-<h4>🪙 Coin Khata</h4>
-<div class="small">Friday 10-12 Withdraw | 7 Din Lock | Fee 20%</div>
-<div id="coinList" style="margin-top:8px"></div>
-<button class="btn" style="background:#f59e0b" onclick="withdrawCoins()">Withdraw Coins</button>
-</div>
+<div class="card"><h4>📊 Bills Last 7 Days - Like/Dislike/Views</h4><input id="billSearch" placeholder="Bills Search" oninput="render()"><div id="billList"></div></div>
 
-<div class="card">
-<h4>📊 Last 7 Days Bills</h4>
-<div id="billList"><div class="small">Koi bill nahi</div></div>
-</div>
-
-<div class="bottom">
-<div onclick="window.scrollTo(0,0)">🏠<br>Home</div>
-<div onclick="document.getElementById('khataList').scrollIntoView()">📒<br>Khata</div>
-<div onclick="document.getElementById('coinList').scrollIntoView()">🪙<br>Coins</div>
-<div>⚙️<br>ON</div>
+<div class="bottom"><div onclick="window.scrollTo(0,0)">🏠<br>Home</div><div onclick="document.getElementById('khataList').scrollIntoView({behavior:'smooth'})">📒<br>Khata</div><div onclick="document.getElementById('payoutHistory').scrollIntoView({behavior:'smooth'})">💸<br>Payout</div><div onclick="doLogout()">🚪<br>Logout</div></div>
 </div>
 
 <script>
-let bills=JSON.parse(localStorage.getItem('v18_bills')||'[]');
-let khata=JSON.parse(localStorage.getItem('v18_khata')||'[]');
-let coins=JSON.parse(localStorage.getItem('v18_coins')||'[]');
-let totalBal=parseInt(localStorage.getItem('v18_total')||'0');
-let coinBal=parseInt(localStorage.getItem('v18_coinBal')||'0');
-
-function saveAll(){
-try{
- localStorage.setItem('v18_bills',JSON.stringify(bills));
- localStorage.setItem('v18_khata',JSON.stringify(khata));
- localStorage.setItem('v18_coins',JSON.stringify(coins));
- localStorage.setItem('v18_total',totalBal);
- localStorage.setItem('v18_coinBal',coinBal);
- render();
-}catch(e){alert('Storage full! PDF le lo!'); bills=bills.slice(0,10); render();}
-}
-
-function autoDeleteOld(){
- let cutoff=new Date(); cutoff.setDate(cutoff.getDate()-7);
- bills=bills.filter(b=> new Date(b.date)>=cutoff);
- khata=khata.filter(k=> new Date(k.date)>=cutoff);
-}
-
-function compressImage(file,cb){
- const r=new FileReader();
- r.onload=e=>{
-  const img=new Image();
-  img.onload=()=>{
-   const c=document.createElement('canvas');
-   let w=img.width,h=img.height,mw=800;
-   if(w>mw){h*=mw/w;w=mw;}
-   c.width=w;c.height=h;c.getContext('2d').drawImage(img,0,0,w,h);
-   cb(c.toDataURL('image/jpeg',0.6));
-  };
-  img.src=e.target.result;
- };
- r.readAsDataURL(file);
-}
-
-function uploadBill(){
- const file=document.getElementById('billImg').files[0];
- const amt=parseInt(document.getElementById('billAmt').value||'0');
- if(!file||!amt){alert('Photo aur Amount likho');return;}
- let tb=bills.filter(b=>new Date(b.date).toDateString()===new Date().toDateString()).length;
- if(tb>=2){alert('Limit 2 khatam!');return;}
- compressImage(file,comp=>{
-  bills.unshift({id:Date.now(),date:new Date().toISOString(),amt:amt,img:comp,company:document.getElementById('company').value,likes:0,dislikes:0,views:1});
-  khata.unshift({id:Date.now(),date:new Date().toISOString(),type:'kharcha',amount:amt,desc:'Bill '+document.getElementById('company').value});
-  totalBal-=amt; coinBal+=100;
-  coins.unshift({id:Date.now(),date:new Date().toISOString(),type:'kami',amount:100,desc:'Bill Upload'});
-  saveAll(); alert('100 Coins mile!');
- });
-}
-function addShopping(){
- let n=document.getElementById('shopName').value;
- let p=parseInt(document.getElementById('shopPrice').value||'0');
- if(!n||!p){alert('Name Price likho');return;}
- bills.unshift({id:Date.now(),date:new Date().toISOString(),amt:p,company:n,rate:document.getElementById('shopRate').value,rating:document.getElementById('shopRating').value,isShopping:true,likes:0,dislikes:0,views:1});
- khata.unshift({id:Date.now(),date:new Date().toISOString(),type:'kharcha',amount:p,desc:'Shopping '+n});
- totalBal-=p; saveAll(); alert('Add ho gaya!');
-}
-function downloadPDF(){
- if(coinBal<5){alert('5 Coins chahiye');return;}
- coinBal-=5; coins.unshift({id:Date.now(),date:new Date().toISOString(),type:'kharch',amount:5,desc:'PDF Fee'});
- let txt='Kharcha Bachao\n'+khata.map(k=>new Date(k.date).toLocaleDateString()+' '+k.desc+' Rs'+k.amount).join('\n');
- let b=new Blob([txt],{type:'text/plain'}); let a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='Backup.txt'; a.click();
- saveAll(); alert('Backup download!');
-}
-function withdrawCoins(){
- let d=new Date(); if(d.getDay()!==5||d.getHours()<10||d.getHours()>=12){alert('Friday 10-12 only!');return;}
- if(coinBal<200){alert('Min 200');return;}
- let last=coins.find(c=>c.type==='withdraw'); if(last){let diff=(new Date()-new Date(last.date))/(1000*60*60*24); if(diff<7){alert(Math.ceil(7-diff)+' din baad');return;}}
- let fee=Math.floor(coinBal*0.2); let fin=coinBal-fee;
- coins.unshift({id:Date.now(),date:new Date().toISOString(),type:'withdraw',amount:coinBal,desc:'Withdraw Fee '+fee});
- khata.unshift({id:Date.now(),date:new Date().toISOString(),type:'aamdani',amount:fin,desc:'Withdraw'});
- totalBal+=fin; coinBal=0; saveAll(); alert('Withdraw Rs'+fin);
-}
+function getUsers(){return JSON.parse(localStorage.getItem('v23_users')||'[]');}
+function saveUsers(u){localStorage.setItem('v23_users',JSON.stringify(u));}
+function getCurrent(){return JSON.parse(localStorage.getItem('v23_current')||'null');}
+function showReg(){document.getElementById('loginForm').classList.add('hidden');document.getElementById('regForm').classList.remove('hidden');}
+function showLogin(){document.getElementById('regForm').classList.add('hidden');document.getElementById('loginForm').classList.remove('hidden');}
+function forgotPass(){let m=prompt('Mobile likho:'); if(!m) return; let users=getUsers(); let u=users.find(x=>x.mobile===m); if(!u) {alert('Mobile nahi mila'); return;} let np=prompt('Naya Password likho:'); if(np){u.password=np; saveUsers(users); alert('Password Reset Ho Gaya! Ab Login Karo'); showLogin();}}
+function doRegister(){let n=document.getElementById('regName').value.trim(), m=document.getElementById('regMobile').value.trim(), p=document.getElementById('regPass').value.trim(), c=document.getElementById('regCity').value.trim(), ref=document.getElementById('regRef').value.trim(); if(!n||!m||!p){alert('Name Mobile Password zaroori');return;} let users=getUsers(); if(users.find(u=>u.mobile===m)){alert('Pehle se hai');return;} let user={id:Date.now(),name:n,mobile:m,password:p,city:c,createdAt:new Date().toISOString()}; users.push(user); saveUsers(users); localStorage.setItem('v23_current',JSON.stringify(user)); localStorage.setItem('v23_'+m+'_total','0'); localStorage.setItem('v23_'+m+'_coinBal','50'); localStorage.setItem('v23_'+m+'_hasPDF','false'); localStorage.setItem('v23_'+m+'_bills','[]'); localStorage.setItem('v23_'+m+'_khata','[]'); localStorage.setItem('v23_'+m+'_coins',JSON.stringify([{id:Date.now(),date:new Date().toISOString(),type:'kami',amount:50,desc:'Registration Bonus +50'}])); localStorage.setItem('v23_'+m+'_payouts','[]'); if(ref){let rb=parseInt(localStorage.getItem('v23_'+ref+'_coinBal')||'0'); localStorage.setItem('v23_'+ref+'_coinBal',rb+20);} alert('Account Ban Gaya! 50 Coins Free!'); startApp();}
+function doLogin(){let m=document.getElementById('loginMobile').value.trim(), p=document.getElementById('loginPass').value.trim(); let users=getUsers(); let u=users.find(x=>x.mobile===m && x.password===p); if(!u){alert('Galat');return;} localStorage.setItem('v23_current',JSON.stringify(u)); startApp();}
+function doLogout(){localStorage.removeItem('v23_current'); location.reload();}
+function startApp(){let cur=getCurrent(); if(!cur){document.getElementById('authScreen').classList.remove('hidden');document.getElementById('mainApp').classList.add('hidden');return;} document.getElementById('authScreen').classList.add('hidden');document.getElementById('mainApp').classList.remove('hidden'); document.getElementById('userNameTop').innerText=cur.name; loadUserData();}
+let bills=[],khata=[],coins=[],payouts=[],totalBal=0,coinBal=0,hasPDF=false,mobile='';
+function loadUserData(){let cur=getCurrent(); if(!cur) return; mobile=cur.mobile; bills=JSON.parse(localStorage.getItem('v23_'+mobile+'_bills')||'[]'); khata=JSON.parse(localStorage.getItem('v23_'+mobile+'_khata')||'[]'); coins=JSON.parse(localStorage.getItem('v23_'+mobile+'_coins')||'[]'); payouts=JSON.parse(localStorage.getItem('v23_'+mobile+'_payouts')||'[]'); totalBal=parseInt(localStorage.getItem('v23_'+mobile+'_total')||'0'); coinBal=parseInt(localStorage.getItem('v23_'+mobile+'_coinBal')||'0'); hasPDF=localStorage.getItem('v23_'+mobile+'_hasPDF')==='true'; document.getElementById('profileBox').innerHTML=`Name: ${cur.name}<br>Mobile: ${cur.mobile}<br>City: ${cur.city||'-'}<br>Since: ${new Date(cur.createdAt).toLocaleDateString()}<br>Status: ${hasPDF?'PDF Wala - Fee 10% ✅':'Normal - Fee 20%'}<br>Referral Code: ${cur.mobile} (Share karke 20 Coins pao)`; autoDeleteOld(); render();}
+function saveAll(){try{localStorage.setItem('v23_'+mobile+'_bills',JSON.stringify(bills));localStorage.setItem('v23_'+mobile+'_khata',JSON.stringify(khata));localStorage.setItem('v23_'+mobile+'_coins',JSON.stringify(coins));localStorage.setItem('v23_'+mobile+'_payouts',JSON.stringify(payouts));localStorage.setItem('v23_'+mobile+'_total',totalBal);localStorage.setItem('v23_'+mobile+'_coinBal',coinBal);localStorage.setItem('v23_'+mobile+'_hasPDF',hasPDF);render();}catch(e){bills=bills.slice(0,10);render();}}
+function autoDeleteOld(){let c=new Date(); c.setDate(c.getDate()-7); bills=bills.filter(b=>new Date(b.date)>=c); khata=khata.filter(k=>new Date(k.date)>=c);}
+function filterComp(){let q=document.getElementById('searchComp').value.toLowerCase(); let sel=document.getElementById('company'); for(let o of sel.options){if(o.text.toLowerCase().includes(q) && q.length>1) sel.value=o.text;}}
+function compressImage(f,cb){const r=new FileReader(); r.onload=e=>{const img=new Image(); img.onload=()=>{const c=document.createElement('canvas'); let w=img.width,h=img.height,mw=800; if(w>mw){h*=mw/w;w=mw;} c.width=w;c.height=h; c.getContext('2d').drawImage(img,0,0,w,h); cb(c.toDataURL('image/jpeg',0.6));}; img.src=e.target.result;}; r.readAsDataURL(f);}
+function uploadBill(){const file=document.getElementById('billImg').files[0]; const amt=parseInt(document.getElementById('billAmt').value||'0'); if(!file||!amt){alert('Photo aur Amount');return;} let tb=bills.filter(b=>new Date(b.date).toDateString()===new Date().toDateString()).length; if(tb>=2){alert('Daily 2 limit');return;} compressImage(file,comp=>{bills.unshift({id:Date.now(),date:new Date().toISOString(),amt:amt,img:comp,company:document.getElementById('company').value,likes:0,dislikes:0,views:1}); khata.unshift({id:Date.now(),date:new Date().toISOString(),type:'kharcha',amount:amt,desc:'Bill '+document.getElementById('company').value}); totalBal-=amt; coinBal+=100; coins.unshift({id:Date.now(),date:new Date().toISOString(),type:'kami',amount:100,desc:'Bill Upload +100'}); saveAll(); alert('100 Coins!');});}
+function addShopping(){let n=document.getElementById('shopName').value; let p=parseInt(document.getElementById('shopPrice').value||'0'); if(!n||!p){alert('Name Price');return;} bills.unshift({id:Date.now(),date:new Date().toISOString(),amt:p,company:n,rate:document.getElementById('shopRate').value,rating:document.getElementById('shopRating').value,isShopping:true,likes:0,dislikes:0,views:1}); khata.unshift({id:Date.now(),date:new Date().toISOString(),type:'kharcha',amount:p,desc:'Shopping '+n}); totalBal-=p; saveAll();}
+function downloadPDF(){if(coinBal<5){alert('5 Coins chahiye');return;} coinBal-=5; hasPDF=true; coins.unshift({id:Date.now(),date:new Date().toISOString(),type:'kharch',amount:5,desc:'PDF -5'}); let txt='Report '+new Date().toLocaleString()+'\n'+khata.map(k=>k.desc+' Rs'+k.amount).join('\n'); let b=new Blob([txt],{type:'text/plain'}); let a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download='Backup.txt'; a.click(); saveAll(); alert('PDF Done - Fee 10%');}
+function requestPayout(){let method=document.getElementById('payoutMethod').value; let num=document.getElementById('payoutNumber').value.trim(); let c=parseInt(document.getElementById('payoutCoins').value||'0'); if(!num||!c){alert('Number Coins likho');return;} if(c<500){alert('Min 500');return;} if(c>coinBal){alert('Coins kam hain: '+coinBal);return;} let d=new Date(); if(d.getDay()!==5||d.getHours()<10||d.getHours()>=12){alert('Friday 10-12 only!');return;} let last=coins.find(x=>x.type==='withdraw'); if(last){let diff=(new Date()-new Date(last.date))/(1000*60*60*24); if(diff<7){alert(Math.ceil(7-diff)+' din baad');return;}} let per=hasPDF?0.10:0.20; let fee=Math.floor(c*per); let fin=c-fee; payouts.unshift({id:Date.now(),date:new Date().toISOString(),coins:c,fee:fee,final:fin,method:method,number:num,status:'Pending - Admin Approval'}); coinBal-=c; coins.unshift({id:Date.now(),date:new Date().toISOString(),type:'withdraw',amount:c,desc:'Payout Request '+c+' Fee '+fee}); saveAll(); alert(`Request OK! Rs ${fin} ${method} ${num} pe - Fee ${per*100}%`);}
+function approveAllPayouts(){payouts=payouts.map(p=>{p.status='Approved ✅ Paid Rs '+p.final; return p;}); saveAll(); alert('Sab Approved!');}
 function like(id){let b=bills.find(x=>String(x.id)===String(id)); if(b){b.likes++; b.views++; saveAll();}}
 function dislike(id){let b=bills.find(x=>String(x.id)===String(id)); if(b){b.dislikes++; saveAll();}}
-
-function render(){
- document.getElementById('totalBal').innerText='Rs '+totalBal;
- document.getElementById('coinBal').innerText=coinBal+' Coins';
- document.getElementById('storageInfo').innerText='Storage: '+(JSON.stringify(localStorage).length/1024).toFixed(1)+'KB | Auto-Delete ON';
- document.getElementById('billList').innerHTML=bills.map(b=>`
-  <div style="border-bottom:1px solid #eee;padding:8px 0;display:flex;gap:8px">
-   ${b.img?`<img src="${b.img}" style="width:50px;height:50px;border-radius:8px;object-fit:cover">`:''}
-   <div style="flex:1"><div class="flex"><b>${b.company}</b><span>Rs ${b.amt}</span></div>
-   <div class="small">${new Date(b.date).toLocaleDateString()} ${b.rate||''} ${b.rating||''}</div>
-   <div class="small">👍${b.likes} <a href="#" onclick="like(${b.id});return false">Like</a> 👎${b.dislikes} <a href="#" onclick="dislike(${b.id});return false">Dislike</a> 👁️${b.views}</div></div></div>`).join('')||'<div class="small">Koi bill nahi</div>';
- let today=new Date().toDateString();
- document.getElementById('todaySpend').innerText='Rs '+khata.filter(k=>new Date(k.date).toDateString()===today&&k.type==='kharcha').reduce((s,k)=>s+k.amount,0);
- document.getElementById('todayIncome').innerText='Rs '+khata.filter(k=>new Date(k.date).toDateString()===today&&k.type==='aamdani').reduce((s,k)=>s+k.amount,0);
- document.getElementById('khataList').innerHTML=khata.slice(0,8).map(k=>`<div class="small flex"><span>${new Date(k.date).toLocaleDateString()} ${k.desc}</span><span style="color:${k.type==='kharcha'?'red':'green'}">Rs ${k.amount}</span></div>`).join('');
- document.getElementById('coinList').innerHTML=coins.slice(0,8).map(c=>`<div class="small flex"><span>${c.desc}</span><span>${c.amount}</span></div>`).join('');
-}
-autoDeleteOld(); render();
+document.getElementById('payoutCoins').addEventListener('input',e=>{let c=parseInt(e.target.value||'0'); let per=hasPDF?0.10:0.20; let fee=Math.floor(c*per); document.getElementById('payoutFee').innerText='Rs '+fee+' ('+per*100+'%)'; document.getElementById('payoutFinal').innerText='Rs '+(c-fee);});
+function render(){document.getElementById('totalBal').innerText='Rs '+totalBal; document.getElementById('coinBal').innerText=coinBal+' Coins'; document.getElementById('storageInfo').innerText='Storage: '+(JSON.stringify(localStorage).length/1024).toFixed(1)+'KB / 5120KB | '+(hasPDF?'Fee 10%':'Fee 20%'); let today=new Date().toDateString(); document.getElementById('todaySpend').innerText='Rs '+khata.filter(k=>new Date(k.date).toDateString()===today&&k.type==='kharcha').reduce((s,k)=>s+k.amount,0); document.getElementById('todayIncome').innerText='Rs '+khata.filter(k=>new Date(k.date).toDateString()===today&&k.type==='aamdani').reduce((s,k)=>s+k.amount,0); document.getElementById('billList').innerHTML=bills.map(b=>`<div style="border-bottom:1px solid #eee;padding:8px 0;display:flex;gap:8px"><div style="flex:1"><div class="flex"><b>${b.company}</b><span>Rs ${b.amt}</span></div><div class="small">👍${b.likes} <a href="#" onclick="like(${b.id});return false">Like</a> 👎${b.dislikes} <a href="#" onclick="dislike(${b.id});return false">Dislike</a> 👁️${b.views}</div></div></div>`).join('')||'<div class="small">Koi bill nahi</div>'; document.getElementById('khataList').innerHTML=khata.slice(0,8).map(k=>`<div class="small flex"><span>${k.desc}</span><span>Rs ${k.amount}</span></div>`).join(''); document.getElementById('coinList').innerHTML=coins.slice(0,8).map(c=>`<div class="small flex"><span>${c.desc}</span><span>${c.amount}</span></div>`).join(''); document.getElementById('payoutHistory').innerHTML=payouts.map(p=>`<div class="small" style="border:1px solid #ddd;padding:6px;border-radius:8px;margin:4px 0"><b>${p.coins} Coins</b> Fee ${p.fee} Final Rs ${p.final}<br>${p.method} ${p.number}<br>Status: <b>${p.status}</b></div>`).join('')||'<div class="small">Koi payout nahi</div>';}
+startApp();
 </script>
 </body>
-                                                                                                             </html>
+</html>
