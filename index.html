@@ -1,286 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kharcha Bachao V26.0 PRO - Easypaisa Style</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>V27 TREASURE BOX - PRO</title>
 <style>
-:root{--green:#00b16a;--dark:#0f172a;--card:#fff;--bg:#f1f5f9;--text:#0f172a}
-[data-theme="dark"]{--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--dark:#fff}
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui}
-body{background:var(--bg);color:var(--text);transition:.3s;padding-bottom:90px}
-.header{background:linear-gradient(135deg,#00b16a,#008a52);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo{font-weight:900;font-size:18px;display:flex;gap:8px;align-items:center}
-.card{background:var(--card);margin:10px;border-radius:16px;padding:14px;box-shadow:0 4px 20px #0001;border:1px solid #e2e8f0}
-.pro-badge{background:#dcfce7;color:#00b16a;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800}
-.btn{background:linear-gradient(135deg,#00b16a,#008a52);color:#fff;border:none;padding:12px;border-radius:12px;width:100%;font-weight:800;margin-top:8px;cursor:pointer}
-.btn-outline{border:2px solid #00b16a;background:transparent;color:#00b16a;padding:10px;border-radius:12px;width:100%;font-weight:700;margin-top:8px}
-input,select{width:100%;padding:12px;margin:6px 0;border:1px solid #cbd5e1;border-radius:12px;background:var(--card);color:var(--text)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
-.icon-box{background:var(--card);padding:12px;border-radius:14px;text-align:center;box-shadow:0 2px 10px #0001;cursor:pointer;border:1px solid #e2e8f0}
-.icon-box span{font-size:24px;display:block}
-.tabs{display:flex;overflow-x:auto;gap:8px;padding:8px 10px;position:sticky;top:56px;background:var(--bg);z-index:90}
-.tab{padding:8px 16px;border-radius:20px;background:var(--card);border:1px solid #e2e8f0;white-space:nowrap;font-size:12px;font-weight:700;cursor:pointer}
-.tab.active{background:#00b16a;color:#fff}
-.hidden{display:none!important}
-.streak-day{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;border:2px solid #e2e8f0;background:var(--card)}
-.streak-day.done{background:#00b16a;color:#fff;border-color:#00b16a}
-.streak-day.today{border-color:#f59e0b;background:#fffbeb}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:var(--card);display:flex;border-top:1px solid #e2e8f0;padding:6px 0 10px;z-index:100}
-.bottom div{flex:1;text-align:center;font-size:10px;font-weight:700;cursor:pointer;padding:4px}
-.bottom div.active{color:#00b16a}
-.ad-card{border:2px solid #f59e0b;background:#fffbeb;padding:10px;border-radius:12px;margin:6px 0}
-.splash{position:fixed;inset:0;background:linear-gradient(135deg,#00b16a,#0f172a);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;z-index:9999;transition:.6s}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:linear-gradient(180deg,#0f172a 0%,#00b16a 100%);min-height:100vh;padding-bottom:20px}
+.treasure-header{padding:20px 16px 10px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.chest{font-size:72px;animation:bounce 2s infinite;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
+@keyframes bounce{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
+.coins-fall{position:absolute;inset:0;pointer-events:none}
+.coin{position:absolute;font-size:18px;animation:fall 3s infinite linear}
+@keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(200px) rotate(360deg);opacity:0}}
+.card{background:#fff;margin:14px;border-radius:20px;padding:18px;box-shadow:0 20px 50px rgba(0,0,0,.2);border:1px solid #e2e8f0}
+.tabs{display:flex;background:#f1f5f9;border-radius:12px;padding:4px;margin:10px 0}
+.tab{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer;transition:.2s}
+.tab.active{background:#00b16a;color:#fff;box-shadow:0 4px 12px rgba(0,177,106,.4)}
+.btn{width:100%;padding:13px;border:none;border-radius:12px;font-weight:900;font-size:14px;cursor:pointer;margin-top:10px;background:linear-gradient(135deg,#00b16a,#0a7a47);color:#fff;box-shadow:0 6px 18px rgba(0,177,106,.3)}
+input{width:100%;padding:13px;margin:7px 0;border:1.5px solid #e2e8f0;border-radius:12px;font-size:14px;outline:none}
+input:focus{border-color:#00b16a;box-shadow:0 0 0 3px rgba(0,177,106,.1)}
+.gift-badge{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.feature{display:flex;gap:8px;align-items:center;background:#f0fdf4;padding:8px 10px;border-radius:10px;margin:5px 0;font-size:11px;border:1px solid #bbf7d0}
 </style>
 </head>
 <body>
 
-<div id="splash" class="splash" onclick="this.style.display='none'">
-<div style="font-size:80px">💰</div>
-<div style="font-weight:900;font-size:24px;margin-top:10px">Kharcha Bachao</div>
-<div style="background:#ffffff22;padding:4px 12px;border-radius:20px;margin-top:8px;font-size:12px">V26.0 PROFESSIONAL - JazzCash Style</div>
-<div style="font-size:11px;margin-top:12px;opacity:.8">Tap to Enter PRO</div>
+<div class="treasure-header">
+<div class="coins-fall">
+<span class="coin" style="left:10%;animation-delay:0s">🪙</span>
+<span class="coin" style="left:25%;animation-delay:.5s">💰</span>
+<span class="coin" style="left:45%;animation-delay:1s">🪙</span>
+<span class="coin" style="left:65%;animation-delay:1.5s">💎</span>
+<span class="coin" style="left:85%;animation-delay:2s">🪙</span>
 </div>
+<div class="chest">🎁</div>
+<div style="font-weight:900;font-size:22px;margin-top:6px;letter-spacing:.5px">Kharcha Bachao</div>
+<div style="font-size:11px;opacity:.9;margin-top:4px">Khazana Kholो - Rozana Coins Jeeto!</div>
+<div style="margin-top:10px"><span class="gift-badge">🎉 Naye User Ko 50 Coins FREE Gift Box Me!</span></div>
 
-<!-- AUTH - EMAIL BASED -->
-<div id="auth" class="card" style="max-width:420px;margin:30px auto">
-<h2 style="text-align:center;color:#00b16a">💰 V26.0 PRO</h2>
-<p style="text-align:center;font-size:12px;margin:6px 0"><span class="pro-badge">✅ Professional | Secure | Easypaisa Style</span></p>
-
-<div id="loginBox">
-<h4>🔐 Login with Email</h4>
-<input id="lEmail" type="email" placeholder="Email - example@gmail.com">
-<input id="lPass" type="password" placeholder="Password">
-<button class="btn" onclick="login()">Login</button>
-<p style="text-align:center;font-size:12px;margin-top:8px"><a href="#" onclick="showReg()">New? Register with Email</a> | <a href="#" onclick="forgot()">Forgot?</a></p>
-</div>
-
-<div id="regBox" class="hidden">
-<h4>📧 Register - Email OTP</h4>
-<input id="rName" placeholder="Full Name">
-<input id="rEmail" type="email" placeholder="Email - OTP will come here">
-<input id="rMobile" placeholder="Mobile 03XX">
-<input id="rPass" type="password" placeholder="Password">
-<div id="emailOtpBox" class="hidden" style="background:#fffbeb;padding:10px;border-radius:12px;border:1px dashed #f59e0b">
-<p style="font-size:12px">📧 OTP Sent to Email: <b id="otpEmailShow"></b><br>Demo OTP: <b>123456</b></p>
-<input id="emailOtp" placeholder="Enter Email OTP 123456">
-</div>
-<button class="btn" id="regBtn" onclick="register()">Send Email OTP</button>
-<p style="text-align:center;font-size:12px;margin-top:8px"><a href="#" onclick="showLogin()">Have Account? Login</a></p>
+<div style="display:flex;gap:8px;justify-content:center;margin-top:14px">
+<div style="background:#ffffff18;padding:6px 12px;border-radius:20px;font-size:10px">💡 Bill Pay</div>
+<div style="background:#ffffff18;padding:6px 12px;border-radius:20px;font-size:10px">📺 Ads Earn</div>
+<div style="background:#ffffff18;padding:6px 12px;border-radius:20px;font-size:10px">💸 Easypaisa Payout</div>
 </div>
 </div>
 
-<!-- MAIN APP -->
-<div id="app" class="hidden">
-<div class="header">
-<div class="logo">💰 Kharcha Bachao <span style="font-size:10px;background:#fff;color:#00b16a;padding:2px 6px;border-radius:10px">PRO V26</span></div>
-<div style="display:flex;gap:10px;align-items:center"><span id="coinTop" style="background:#fff;color:#00b16a;padding:4px 10px;border-radius:20px;font-weight:800;font-size:12px">0 🪙</span><span onclick="toggleTheme()" style="cursor:pointer">🌙</span></div>
-</div>
+<div style="max-width:420px;margin:0 auto">
+
+<div class="card" id="authCard">
+<div style="text-align:center"><b style="color:#0f172a;font-size:16px">🔐 Treasure Login / Register - 1 Key</b><p style="font-size:11px;color:#64748b;margin-top:4px">Ek hi jagah pe Login aur Registration - Professional</p></div>
 
 <div class="tabs">
-<div class="tab active" onclick="switchTab('home',this)">🏠 Home</div>
-<div class="tab" onclick="switchTab('bills',this)">🧾 Bills</div>
-<div class="tab" onclick="switchTab('pay',this)">💳 Pay Bill</div>
-<div class="tab" onclick="switchTab('ads',this)">📺 Ads Earn</div>
-<div class="tab" onclick="switchTab('wallet',this)">💸 Wallet</div>
-<div class="tab" onclick="switchTab('profile',this)">👤 Profile</div>
+<div class="tab active" id="tabLogin" onclick="switchAuth('login')">🔐 Login</div>
+<div class="tab" id="tabReg" onclick="switchAuth('reg')">🎁 Register + Gift</div>
 </div>
 
-<!-- HOME -->
-<div id="tab-home">
-<div class="card" style="background:linear-gradient(135deg,#00b16a,#0f172a);color:#fff">
-<div style="display:flex;justify-content:space-between"><div><div style="opacity:.8;font-size:12px">Total Wallet</div><div style="font-size:26px;font-weight:900" id="bal">Rs 0</div><div style="font-size:11px;margin-top:4px">Fee: <span id="feeStatus">10% PDF</span> | <span id="streakInfo">🔥 0 Day Streak</span></div></div><div style="text-align:right"><div style="font-size:12px;opacity:.8">Coins</div><div style="font-size:22px;font-weight:900" id="coinBalMain">0</div><div style="font-size:10px;background:#ffffff22;padding:2px 8px;border-radius:10px;margin-top:4px">Daily: 5 🪙</div></div></div>
+<!-- LOGIN -->
+<div id="loginForm">
+<input id="lEmail" type="email" placeholder="📧 Email - azhan@gmail.com">
+<input id="lPass" type="password" placeholder="🔑 Password">
+<button class="btn" onclick="doLogin()">🔓 Khazana Kholो - Login</button>
+<p style="text-align:center;font-size:11px;margin-top:10px;color:#64748b">Password bhul gaye? <a href="#" onclick="forgot()" style="color:#00b16a;font-weight:700">Forgot</a> | <a href="#" onclick="clearData()" style="color:#ef4444">Clear Data</a></p>
 </div>
 
-<div class="card">
-<h4>🔥 Daily Check-in - 7 Days Streak</h4>
-<p style="font-size:11px;color:#64748b">Rozana Check-in Karo - 7 Din Tak Streak!</p>
-<div style="display:flex;gap:6px;margin:10px 0;overflow-x:auto" id="streakBox"></div>
-<button class="btn" onclick="dailyCheck()">✅ Aaj Ka Check-in - 5 Coins</button>
-<div style="margin-top:8px;font-size:11px"><b>Monthly Streak:</b> <span id="monthlyStreak">0 / 30 Days = 0 Coins</span></div>
+<!-- REGISTER -->
+<div id="regForm" style="display:none">
+<input id="rName" placeholder="👤 Full Name">
+<input id="rEmail" type="email" placeholder="📧 Email - OTP yahin lagega">
+<input id="rMobile" placeholder="📱 Mobile 03XX-XXXXXXX">
+<input id="rPass" type="password" placeholder="🔑 Password Banao">
+<div style="background:#fffbeb;border:1.5px dashed #f59e0b;padding:10px;border-radius:12px;margin:8px 0">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px">🎁 Gift Box OTP:</span><span style="font-size:14px;font-weight:900;background:#f59e0b;color:#fff;padding:2px 8px;border-radius:6px">123456</span></div>
+<input id="rOtp" placeholder="🎁 OTP 123456 Likho - Gift Unlock">
+</div>
+<button class="btn" style="background:linear-gradient(135deg,#f59e0b,#ef4444)" onclick="doRegister()">🎁 Gift Box Kholो - 50 Coins + Register</button>
 </div>
 
-<div class="card">
-<h4>⚡ Quick Services - Easypaisa Style</h4>
-<div class="grid4">
-<div class="icon-box" onclick="switchTab('pay',null)"><span>💡</span><div style="font-size:10px;font-weight:700">Bijli Bill</div></div>
-<div class="icon-box" onclick="switchTab('pay',null)"><span>🔥</span><div style="font-size:10px;font-weight:700">Gas Bill</div></div>
-<div class="icon-box" onclick="switchTab('pay',null)"><span>💧</span><div style="font-size:10px;font-weight:700">WASA</div></div>
-<div class="icon-box" onclick="switchTab('bills',null)"><span>📤</span><div style="font-size:10px;font-weight:700">Bill Upload</div></div>
-<div class="icon-box" onclick="switchTab('ads',null)"><span>📺</span><div style="font-size:10px;font-weight:700">Earn Ads</div></div>
-<div class="icon-box" onclick="switchTab('wallet',null)"><span>💸</span><div style="font-size:10px;font-weight:700">Payout</div></div>
-<div class="icon-box" onclick="openInvite()"><span>🎁</span><div style="font-size:10px;font-weight:700">Invite</div></div>
-<div class="icon-box" onclick="switchTab('profile',null)"><span>⚙️</span><div style="font-size:10px;font-weight:700">Settings</div></div>
-</div>
+<div style="margin-top:12px">
+<div class="feature"><span>🎁</span><span><b>50 Coins FREE</b> - Register pe Gift Box me</span></div>
+<div class="feature"><span>🔥</span><span><b>7 Days Streak</b> - Rozana 5+5 Coins</span></div>
+<div class="feature"><span>💸</span><span><b>Easypaisa/JazzCash Payout</b> - Friday 10-12</span></div>
 </div>
 
-<div class="card">
-<div style="display:flex;justify-content:space-between;align-items:center"><h4>📜 Recent Activity</h4><span style="font-size:11px;color:#00b16a" onclick="switchTab('bills',null)">View All</span></div>
-<div id="recentList"></div>
-</div>
+<div id="msg" style="text-align:center;font-size:12px;margin-top:12px;font-weight:700"></div>
 </div>
 
-<!-- BILLS PROFESSIONAL SECTION -->
-<div id="tab-bills" class="hidden">
-<div class="card" style="border:2px solid #00b16a">
-<h4>🧾 Bill Upload - Professional Section</h4>
-<p style="font-size:11px;color:#64748b">Alag Se Professional Bill Upload - 100 Coins Har Bill Pe</p>
-<select id="billCompanyPro"><option>K-Electric</option><option>LESCO</option><option>IESCO</option><option>FESCO</option><option>SSGC</option><option>SNGPL</option><option>PTCL</option><option>WASA Lahore</option></select>
-<input type="file" id="billImgPro" accept="image/*">
-<input id="billAmtPro" type="number" placeholder="Amount Rs">
-<button class="btn" onclick="uploadBillPro()">📤 Professional Upload - 100 Coins</button>
-<div id="billListPro" style="margin-top:10px"></div>
+<div class="card" id="appCard" style="display:none">
+<div style="text-align:center"><div style="font-size:40px">🎉</div><h3 id="welcomeName">Welcome!</h3><p style="font-size:12px;color:#64748b" id="welcomeEmail"></p></div>
+<div style="background:linear-gradient(135deg,#00b16a,#0f172a);color:#fff;padding:14px;border-radius:14px;margin-top:12px;display:flex;justify-content:space-between">
+<div><div style="font-size:11px;opacity:.8">Coins Gift Box</div><div style="font-size:22px;font-weight:900" id="coinShow">50 🪙</div></div>
+<div style="text-align:right"><div style="font-size:11px;opacity:.8">Status</div><div style="font-size:12px;background:#ffffff22;padding:4px 10px;border-radius:20px;margin-top:4px">✅ PRO V27</div></div>
 </div>
+<button class="btn" style="background:#ef4444" onclick="logout()">Logout</button>
+<div style="font-size:10px;text-align:center;margin-top:10px;color:#64748b">Easypaisa Style Dashboard - V27 me Full Features Unlock Honge - Bill Upload, Ads, Pay</div>
 </div>
 
-<!-- PAY BILL WITH SEARCH -->
-<div id="tab-pay" class="hidden">
-<div class="card" style="border:2px solid #0ea5e9">
-<h4>💳 Bill Pay - Search + Pay - Easypaisa Style</h4>
-<input id="searchBill" placeholder="🔍 Search Company - LESCO, SSGC, PTCL..." oninput="searchBill()">
-<select id="payComp"><option>LESCO</option><option>IESCO</option><option>K-Electric</option><option>SSGC</option><option>SNGPL</option><option>WASA</option><option>PTCL</option><option>Nayatel</option></select>
-<input id="payRef" placeholder="Reference / Consumer No">
-<input id="payAmt" type="number" placeholder="Amount Rs">
-<select id="payMethod"><option>Easypaisa<JS Bank</option/option><option>JazzCash</option><option>HBL</option><option>UBL</option></select>
-<button class="btn" onclick="payBillPro()">💸 Pay Bill - Secure</button>
-<div id="payHistoryPro"></div>
-</div>
-</div>
-
-<!-- ADS WITH USER AD CREATE -->
-<div id="tab-ads" class="hidden">
-<div class="card" style="border:2px solid #f59e0b;background:#fffbeb">
-<h4>📺 Ads Earn + Apna Ad Lagao</h4>
-<div class="grid2">
-<button class="btn" onclick="watchAdPro()">▶️ Dusron Ka Ad Dekho - 5 Coins</button>
-<button class="btn-outline" onclick="createAd()">➕ Apna Ad Banao</button>
-</div>
-<div style="background:#fff;padding:10px;border-radius:12px;margin:10px 0;text-align:center" id="adDisplay">
-<h4 id="adTitlePro">Easypaisa - 5% Cashback</h4>
-<p style="font-size:12px" id="adDescPro">Bill Pay Pe Cashback Pao!</p>
-<div style="background:#fef3c7;height:70px;display:flex;align-items:center;justify-content:center;border-radius:10px;margin:8px 0">📢 GOOGLE AD HERE - 5 Coins</div>
-<div style="font-size:11px;color:#d97706" id="adTimerPro"></div>
-</div>
-<div>Today: <b id="todayAdsPro">0/20</b> | Earn: <b id="earnPro">0</b></div>
-</div>
-
-<div class="card">
-<h4>📢 User Ads - Community Ads</h4>
-<div id="userAdsList"></div>
-<div style="margin-top:10px">
-<input id="myAdTitle" placeholder="Apne Ad Ka Title">
-<input id="myAdDesc" placeholder="Description">
-<button class="btn-outline" onclick="postMyAd()">📢 Mera Ad Post Karo - 10 Coins Fee</button>
-</div>
-</div>
-</div>
-
-<!-- WALLET PROFESSIONAL -->
-<div id="tab-wallet" class="hidden">
-<div class="card" style="border:2px solid #00b16a;background:#f0fdf4">
-<h4>💸 Payout - Professional - Coins Visible</h4>
-<div style="background:#fff;padding:10px;border-radius:12px;margin:8px 0">
-<div style="display:flex;justify-content:space-between"><span>Your Coins:</span><b id="payoutCoinsShow" style="color:#00b16a">0 Coins</b></div>
-<div style="display:flex;justify-content:space-between"><span>Fee (10%):</span><b id="payoutFeeShow">Rs 0</b></div>
-<div style="display:flex;justify-content:space-between"><span>You Will Get:</span><b id="payoutFinalShow" style="color:green">Rs 0</b></div>
-<div style="display:flex;justify-content:space-between;margin-top:6px;border-top:1px dashed #e2e8f0;padding-top:6px"><span>Coins Deduct:</span><b id="payoutDeductShow" style="color:#ef4444">0 Coins</b></div>
-</div>
-<select id="payoutMethodPro"><option>Easypaisa</option><option>JazzCash</option><option>HBL Bank</option><option>UBL Bank</option><option>IBAN</option></select>
-<input id="payoutNumPro" placeholder="Number / IBAN">
-<input id="payoutCoinsPro" type="number" placeholder="Coins - Min 500" oninput="calcPayout()">
-<button class="btn" style="background:linear-gradient(135deg,#f59e0b,#d97706)" onclick="requestPayoutPro()">💰 Request Payout - Friday 10-12</button>
-<div id="payoutHistoryPro" style="margin-top:10px"></div>
-</div>
-</div>
-
-<!-- PROFILE + SETTINGS + POLICY -->
-<div id="tab-profile" class="hidden">
-<div class="card">
-<h4>👤 Professional Profile</h4>
-<div id="profilePro"></div>
-<div class="grid2" style="margin-top:10px">
-<button class="btn-outline" onclick="editProfile()">✏️ Edit Profile</button>
-<button class="btn-outline" onclick="toggleTheme()">🌙 Dark/Light Theme</button>
-</div>
-</div>
-
-<div class="card">
-<h4>⚙️ Settings</h4>
-<div style="display:flex;flex-direction:column;gap:8px">
-<button class="btn-outline" onclick="openPage('invite')">🎁 Invite & Earn - 20 Coins</button>
-<button class="btn-outline" onclick="openPage('policy')">📄 Privacy Policy</button>
-<button class="btn-outline" onclick="openPage('contact')">📞 Contact Us</button>
-<button class="btn-outline" onclick="openPage('about')">ℹ️ About / Terms</button>
-<button class="btn-outline" style="border-color:#ef4444;color:#ef4444" onclick="logout()">🚪 Logout</button>
-</div>
-</div>
-
-<div class="card" id="policyBox">
-<h4>📄 Policy | Privacy | Contact</h4>
-<div style="font-size:12px;line-height:1.6;color:#64748b">
-<b>Privacy Policy:</b> Your data is 100% encrypted. We never share email/mobile.<br><br>
-<b>Contact Us:</b> Email: support@kharchabachao.com | WhatsApp: 03XX-XXXXXXX<br><br>
-<b>Invite:</b> Share your email code - Har invite pe 20 Coins!<br><br>
-<b>Terms:</b> Daily 20 Ads, 2 Bills, Payout Friday 10-12, 7 Days Lock.
-</div>
-</div>
-</div>
-
-<div class="bottom">
-<div class="active" onclick="switchTab('home',this)">🏠<br>Home</div>
-<div onclick="switchTab('bills',this)">🧾<br>Bills</div>
-<div onclick="switchTab('pay',this)">💳<br>Pay</div>
-<div onclick="switchTab('ads',this)">📺<br>Ads</div>
-<div onclick="switchTab('wallet',this)">💸<br>Wallet</div>
-</div>
 </div>
 
 <script>
-// V26 PRO LOGIC - SAME AS BEFORE + NEW FEATURES
-const VER='v26_';
-function hideSplash(){let s=document.getElementById('splash');if(s){s.style.opacity='0';setTimeout(()=>s.style.display='none',600)}}
-setTimeout(hideSplash,1200); document.addEventListener('click',hideSplash,{once:true});
-function enc(t){return btoa(unescape(encodeURIComponent(t))).split('').reverse().join('')}
-function dec(t){try{return decodeURIComponent(escape(atob(t.split('').reverse().join(''))))}catch(e){return t}}
-function getUsers(){return JSON.parse(localStorage.getItem(VER+'users')||'[]')}
-function saveUsers(u){localStorage.setItem(VER+'users',JSON.stringify(u))}
-let otpSent=false, curEmail='';
-function showReg(){document.getElementById('loginBox').classList.add('hidden');document.getElementById('regBox').classList.remove('hidden')}
-function showLogin(){document.getElementById('regBox').classList.add('hidden');document.getElementById('loginBox').classList.remove('hidden')}
-function forgot(){let e=prompt('Email Likho:');if(!e)return;let us=getUsers();let u=us.find(x=>x.email===e);if(!u){alert('Email Nahi Mila');return}let np=prompt('Naya Password:');if(np){u.password=enc(np);saveUsers(us);alert('Password Reset Done')}}
-function register(){
- let n=document.getElementById('rName').value.trim(), em=document.getElementById('rEmail').value.trim(), m=document.getElementById('rMobile').value.trim(), p=document.getElementById('rPass').value.trim();
- if(!otpSent){
-  if(!n||!em||!p){alert('Name Email Password Likho');return}
-  if(!em.includes('@')){alert('Sahi Email Likho');return}
-  curEmail=em;document.getElementById('otpEmailShow').innerText=em;
-  document.getElementById('emailOtpBox').classList.remove('hidden');
-  document.getElementById('regBtn').innerText='Verify Email OTP & Create Account';
-  otpSent=true;alert('📧 OTP Sent to '+em+'\nDemo OTP: 123456');return
- }
- let otp=document.getElementById('emailOtp').value.trim();if(otp!=='123456'){alert('Galat OTP! 123456 Likho');return}
- let users=getUsers();if(users.find(u=>u.email===em)){alert('Email Already Registered');showLogin();return}
- let user={id:Date.now(),name:n,email:em,mobile:m,password:enc(p),city:'Pakistan',createdAt:new Date().toISOString(),verified:true};
- users.push(user);saveUsers(users);localStorage.setItem(VER+'current',JSON.stringify(user));
- localStorage.setItem(VER+em+'_coin','50');localStorage.setItem(VER+em+'_bal','0');
- localStorage.setItem(VER+em+'_bills','[]');localStorage.setItem(VER+em+'_khata','[]');localStorage.setItem(VER+em+'_coins',JSON.stringify([{id:Date.now(),date:new Date().toISOString(),type:'kami',amount:50,desc:'Email Register +50'}]));
- localStorage.setItem(VER+em+'_payouts','[]');localStorage.setItem(VER+em+'_ads','[]');localStorage.setItem(VER+em+'_userAds','[]');localStorage.setItem(VER+em+'_streak','[]');localStorage.setItem(VER+em+'_monthly','0');
- otpSent=false;alert('✅ Account Bana! 50 Coins Free!');start();
+const P='v27_';
+function switchAuth(t){
+ document.getElementById('tabLogin').classList.toggle('active', t==='login');
+ document.getElementById('tabReg').classList.toggle('active', t==='reg');
+ document.getElementById('loginForm').style.display = t==='login' ? 'block':'none';
+ document.getElementById('regForm').style.display = t==='reg' ? 'block':'none';
+ document.getElementById('msg').innerText='';
 }
-function login(){let em=document.getElementById('lEmail').value.trim(), p=document.getElementById('lPass').value.trim();if(!em||!p){alert('Email Pass Likho');return}let us=getUsers();let u=us.find(x=>x.email===em&&(x.password===enc(p)||dec(x.password)===p||x.password===p));if(!u){alert('Email/Password Galat');return}localStorage.setItem(VER+'current',JSON.stringify(u));start()}
-function logout(){if(confirm('Logout?')){localStorage.removeItem(VER+'current');location.reload()}}
-function switchTab(name,el){document.querySelectorAll('[id^="tab-"]').forEach(d=>d.classList.add('hidden'));document.getElementById('tab-'+name).classList.remove('hidden');if(el){document.querySelectorAll('.bottom div,.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active')}window.scrollTo({top:0,behavior:'smooth'})}
-function toggleTheme(){let cur=document.documentElement.getAttribute('data-theme');let next=cur==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',next);localStorage.setItem(VER+'theme',next)}
-// LOAD DATA
-let mobile='',coin=0,bal=0,bills=[],khata=[],coins=[],payouts=[],adsCount=0,earn=0,streak=[],monthly=0,userAds=[];
-function start(){
- let cur=JSON.parse(localStorage.getItem(VER+'current')||'null');if(!cur){document.getElementById('auth').classList.remove('hidden');document.getElementById('app').classList.add('hidden');hideSplash();return}
- document.getElementById('auth').classList.add('hidden');document.getElementById('app').classList.remove('hidden');mobile=cur.email;
- coin=parseInt(localStorage.getItem(VER+mobile+'_coin')||'0');bal=parseInt(localStorage.getItem(VER+mobile+'_bal')||'0');
- bills=JSON.parse(localStorage.getItem(VER+mobile+'_bills')||'[]');khata=JSON.parse(localStorage.getItem(VER+mobile+'_khata')||'[]');coins=JSON.parse(localStorage.getItem(VER+mobile+'_coins')||'[]');payouts=JSON.parse(localStorage.getItem(VER+mobile+'_payouts')||'[]');
- adsCount=parseInt(localStorage.getItem(VER+mobile+'_adCount')||'0');earn=parseInt(localStorage.getItem(VER+mobile+'_adEarn')||'0');streak=JSON.parse(localStorage.getItem(VER+mobile+'_streak')||'[]');monthly=parseInt(localStorage.getItem(VER+mobile+'_monthly')||'0');
- userAds=JSON.parse(localStorage.getItem(VER+mobile+'_userAds')||'[]');
- document.getElementById('coinTop').innerText=coin+' 🪙';renderAll();hideSplash();
+function getU(){try{return JSON.parse(localStorage.getItem(P+'users')||'[]')}catch(e){return []}}
+function saveU(u){localStorage.setItem(P+'users',JSON.stringify(u))}
+function clearData(){if(confirm('Clear all data?')){localStorage.clear();location.reload()}}
+function forgot(){let e=prompt('Email likho:'); if(!e)return; let us=getU(); let u=us.find(x=>x.email===e.toLowerCase()); if(!u){alert('Email nahi mila');return} let np=prompt('Naya Password:'); if(np){u.pass=np; saveU(us); alert('Password change ho gaya - Ab login karo')}} 
+
+function doRegister(){
+ let n=document.getElementById('rName').value.trim();
+ let e=document.getElementById('rEmail').value.trim().toLowerCase();
+ let m=document.getElementById('rMobile').value.trim();
+ let p=document.getElementById('rPass').value.trim();
+ let o=document.getElementById('rOtp').value.trim();
+ if(!n){alert('👤 Name likho');return}
+ if(!e || !e.includes('@')){alert('📧 Sahi Email likho');return}
+ if(!p){alert('🔑 Password likho');return}
+ if(o!=='123456'){alert('🎁 OTP me 123456 likho - Gift Box Unlock ke liye');return}
+ let users=getU();
+ if(users.find(x=>x.email===e)){alert('Ye email pehle se hai - Login tab pe jao');switchAuth('login');document.getElementById('lEmail').value=e;return}
+ let user={id:Date.now(),name:n,email:e,mobile:m,pass:p};
+ users.push(user); saveU(users);
+ localStorage.setItem(P+'current',JSON.stringify(user));
+ localStorage.setItem(P+e+'_coin','50');
+ document.getElementById('msg').innerHTML='✅ <span style="color:#00b16a">Gift Box Khul Gaya! 50 Coins Mile! Login ho raha hai...</span>';
+ setTimeout(()=>{startApp()},900);
 }
-function save(){localStorage.setItem(VER+mobile+'_coin',coin);localStorage.setItem(VER+mobile+'_bal',bal);localStorage.setItem(VER+mobile+'_bills',JSON.stringify(bills));localStorage.setItem(VER+mobile+'_khata',JS
+function doLogin(){
+ let e=document.getElementById('lEmail').value.trim().toLowerCase();
+ let p=document.getElementById('lPass').value.trim();
+ if(!e||!p){alert('Email + Password likho');return}
+ let users=getU();
+ let u=users.find(x=>x.email===e && x.pass===p);
+ if(!u){alert('❌ Email ya Password galat hai. Pehle Register karo - Gift Box wala tab');return}
+ localStorage.setItem(P+'current',JSON.stringify(u));
+ startApp();
+}
+function startApp(){
+ let cur=null; try{cur=JSON.parse(localStorage.getItem(P+'current')||'null')}catch(e){}
+ if(!cur){document.getElementById('authCard').style.display='block';document.getElementById('appCard').style.display='none';return}
+ document.getElementById('authCard').style.display='none';document.getElementById('appCard').style.display='block';
+ let coin=localStorage.getItem(P+cur.email+'_coin')||'50';
+ document.getElementById('welcomeName').innerText='Welcome '+cur.name+'! 🎁';
+ document.getElementById('welcomeEmail').innerText=cur.email+' | '+cur.mobile;
+ document.getElementById('coinShow').innerText=coin+' 🪙 Gift';
+}
+function logout(){localStorage.removeItem(P+'current');location.reload()}
+startApp();
+</script>
+</body>
+         </html>
