@@ -2,156 +2,150 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>V27 TREASURE BOX - PRO</title>
+<title>V29 FULL INSIDE - Kharcha Bachao</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:linear-gradient(180deg,#0f172a 0%,#00b16a 100%);min-height:100vh;padding-bottom:20px}
-.treasure-header{padding:20px 16px 10px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.chest{font-size:72px;animation:bounce 2s infinite;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
-@keyframes bounce{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-10px) scale(1.05)}}
-.coins-fall{position:absolute;inset:0;pointer-events:none}
-.coin{position:absolute;font-size:18px;animation:fall 3s infinite linear}
-@keyframes fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(200px) rotate(360deg);opacity:0}}
-.card{background:#fff;margin:14px;border-radius:20px;padding:18px;box-shadow:0 20px 50px rgba(0,0,0,.2);border:1px solid #e2e8f0}
+body{background:#f1f5f9;padding-bottom:85px}
+.treasure{background:linear-gradient(180deg,#0f172a 0%,#00b16a 100%);padding:20px 16px;text-align:center;color:#fff}
+.card{background:#fff;margin:10px;border-radius:16px;padding:14px;box-shadow:0 4px 20px #0001;border:1px solid #e2e8f0}
 .tabs{display:flex;background:#f1f5f9;border-radius:12px;padding:4px;margin:10px 0}
-.tab{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer;transition:.2s}
-.tab.active{background:#00b16a;color:#fff;box-shadow:0 4px 12px rgba(0,177,106,.4)}
-.btn{width:100%;padding:13px;border:none;border-radius:12px;font-weight:900;font-size:14px;cursor:pointer;margin-top:10px;background:linear-gradient(135deg,#00b16a,#0a7a47);color:#fff;box-shadow:0 6px 18px rgba(0,177,106,.3)}
-input{width:100%;padding:13px;margin:7px 0;border:1.5px solid #e2e8f0;border-radius:12px;font-size:14px;outline:none}
-input:focus{border-color:#00b16a;box-shadow:0 0 0 3px rgba(0,177,106,.1)}
-.gift-badge{background:linear-gradient(135deg,#f59e0b,#ef4444);color:#fff;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block;animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.feature{display:flex;gap:8px;align-items:center;background:#f0fdf4;padding:8px 10px;border-radius:10px;margin:5px 0;font-size:11px;border:1px solid #bbf7d0}
+.tab{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer}
+.tab.active{background:#00b16a;color:#fff}
+.btn{width:100%;padding:12px;border:none;border-radius:12px;font-weight:800;cursor:pointer;margin-top:8px;background:linear-gradient(135deg,#00b16a,#0a7a47);color:#fff}
+.btn-out{background:#fff;color:#00b16a;border:2px solid #00b16a;padding:10px;border-radius:12px;width:100%;font-weight:700;margin-top:8px}
+input,select,textarea{width:100%;padding:12px;margin:6px 0;border:1.5px solid #e2e8f0;border-radius:12px;font-size:13px}
+.header{background:linear-gradient(135deg,#00b16a,#0a7a47);color:#fff;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.icon-box{background:#fff;padding:12px 6px;border-radius:14px;text-align:center;box-shadow:0 2px 8px #0001;border:1px solid #e2e8f0;cursor:pointer}
+.icon-box:active{transform:scale(.95)}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #e2e8f0;padding:6px 0;z-index:100}
+.bottom div{flex:1;text-align:center;font-size:10px;font-weight:700;cursor:pointer;padding:4px}
+.bottom div.active{color:#00b16a}
+.badge{background:#f59e0b;color:#fff;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:800}
 </style>
 </head>
 <body>
 
-<div class="treasure-header">
-<div class="coins-fall">
-<span class="coin" style="left:10%;animation-delay:0s">🪙</span>
-<span class="coin" style="left:25%;animation-delay:.5s">💰</span>
-<span class="coin" style="left:45%;animation-delay:1s">🪙</span>
-<span class="coin" style="left:65%;animation-delay:1.5s">💎</span>
-<span class="coin" style="left:85%;animation-delay:2s">🪙</span>
-</div>
-<div class="chest">🎁</div>
-<div style="font-weight:900;font-size:22px;margin-top:6px;letter-spacing:.5px">Kharcha Bachao</div>
-<div style="font-size:11px;opacity:.9;margin-top:4px">Khazana Kholो - Rozana Coins Jeeto!</div>
-<div style="margin-top:10px"><span class="gift-badge">🎉 Naye User Ko 50 Coins FREE Gift Box Me!</span></div>
-
-<div style="display:flex;gap:8px;justify-content:center;margin-top:14px">
-<div style="background:#ffffff18;padding:6px 12px;border-radius:20px;font-size:10px">💡 Bill Pay</div>
-<div style="background:#ffffff18;padding:6px 12px;border-radius:20px;font-size:10px">📺 Ads Earn</div>
-<div style="background:#ffffff18;padding:6px 12px;border-radius:20px;font-size:10px">💸 Easypaisa Payout</div>
-</div>
-</div>
-
+<!-- LOGIN / REGISTER - TREASURE -->
+<div id="authScreen">
+<div class="treasure"><div style="font-size:60px">🎁</div><div style="font-weight:900;font-size:22px">Kharcha Bachao</div><div style="font-size:11px;margin-top:4px">Khazana Kholो - Rozana Coins Jeeto!</div><div style="margin-top:10px"><span style="background:linear-gradient(135deg,#f59e0b,#ef4444);padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800">🎉 Naye User Ko 50 Coins FREE Gift Box!</span></div></div>
 <div style="max-width:420px;margin:0 auto">
-
-<div class="card" id="authCard">
-<div style="text-align:center"><b style="color:#0f172a;font-size:16px">🔐 Treasure Login / Register - 1 Key</b><p style="font-size:11px;color:#64748b;margin-top:4px">Ek hi jagah pe Login aur Registration - Professional</p></div>
-
-<div class="tabs">
-<div class="tab active" id="tabLogin" onclick="switchAuth('login')">🔐 Login</div>
-<div class="tab" id="tabReg" onclick="switchAuth('reg')">🎁 Register + Gift</div>
+<div class="card">
+<div class="tabs"><div class="tab active" id="tL" onclick="sw('login')">🔐 Login</div><div class="tab" id="tR" onclick="sw('reg')">🎁 Register</div></div>
+<div id="fL"><input id="lE" type="email" placeholder="📧 Email"><input id="lP" type="password" placeholder="🔑 Password"><button class="btn" onclick="login()">🔓 Login - Ander Jao</button></div>
+<div id="fR" style="display:none"><input id="rN" placeholder="👤 Full Name"><input id="rE" type="email" placeholder="📧 Email"><input id="rM" placeholder="📱 Mobile 0344..."><input id="rP" type="password" placeholder="🔑 Password"><div style="background:#fffbeb;border:1.5px dashed #f59e0b;padding:8px;border-radius:10px;margin:6px 0;font-size:11px">🎁 Gift OTP: <b>123456</b><input id="rO" placeholder="OTP 123456 Likho" style="margin-top:6px"></div><button class="btn" style="background:linear-gradient(135deg,#f59e0b,#ef4444)" onclick="reg()">🎁 Register + 50 Coins Gift</button></div>
+<p style="text-align:center;font-size:11px;margin-top:8px"><a href="#" onclick="localStorage.clear();location.reload()">Clear Data</a></p>
+<div id="msg" style="text-align:center;font-size:12px;margin-top:8px;color:#00b16a;font-weight:700"></div>
+</div>
+</div>
 </div>
 
-<!-- LOGIN -->
-<div id="loginForm">
-<input id="lEmail" type="email" placeholder="📧 Email - azhan@gmail.com">
-<input id="lPass" type="password" placeholder="🔑 Password">
-<button class="btn" onclick="doLogin()">🔓 Khazana Kholो - Login</button>
-<p style="text-align:center;font-size:11px;margin-top:10px;color:#64748b">Password bhul gaye? <a href="#" onclick="forgot()" style="color:#00b16a;font-weight:700">Forgot</a> | <a href="#" onclick="clearData()" style="color:#ef4444">Clear Data</a></p>
+<!-- FULL INSIDE APP - EASYPAISA STYLE -->
+<div id="mainApp" style="display:none">
+<div class="header"><div style="font-weight:900">💰 Kharcha Bachao <span style="font-size:8px;background:#fff;color:#00b16a;padding:2px 6px;border-radius:10px">V29 FULL</span></div><div id="coinTop" style="background:#fff;color:#00b16a;padding:5px 12px;border-radius:20px;font-weight:900;font-size:12px">0 🪙</div></div>
+
+<!-- WALLET CARD -->
+<div class="card" style="background:linear-gradient(135deg,#00b16a,#0f172a);color:#fff">
+<div style="display:flex;justify-content:space-between">
+<div><div style="font-size:11px;opacity:.8">Welcome</div><div style="font-size:16px;font-weight:900" id="uName">User</div><div style="font-size:10px;opacity:.8;margin-top:2px" id="uEmail">email | mobile</div>
+<div style="margin-top:8px;display:flex;gap:6px"><span style="background:#ffffff22;padding:3px 8px;border-radius:10px;font-size:10px">🔥 <span id="streakTxt">0 Day</span></span><span style="background:#ffffff22;padding:3px 8px;border-radius:10px;font-size:10px">Fee 10%</span></div>
+</div>
+<div style="text-align:right"><div style="font-size:11px;opacity:.8">Total Coins</div><div style="font-size:24px;font-weight:900" id="uCoin">0</div><div style="font-size:11px;margin-top:4px">Rs <span id="uRs">0</span></div><div style="font-size:9px;background:#f59e0b;padding:2px 8px;border-radius:10px;margin-top:4px">🎁 PRO V29</div></div>
+</div>
 </div>
 
-<!-- REGISTER -->
-<div id="regForm" style="display:none">
-<input id="rName" placeholder="👤 Full Name">
-<input id="rEmail" type="email" placeholder="📧 Email - OTP yahin lagega">
-<input id="rMobile" placeholder="📱 Mobile 03XX-XXXXXXX">
-<input id="rPass" type="password" placeholder="🔑 Password Banao">
-<div style="background:#fffbeb;border:1.5px dashed #f59e0b;padding:10px;border-radius:12px;margin:8px 0">
-<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px">🎁 Gift Box OTP:</span><span style="font-size:14px;font-weight:900;background:#f59e0b;color:#fff;padding:2px 8px;border-radius:6px">123456</span></div>
-<input id="rOtp" placeholder="🎁 OTP 123456 Likho - Gift Unlock">
+<!-- SERVICES GRID - EASYPAISA STYLE -->
+<div class="card"><h4>⚡ Services - Easypaisa Style</h4>
+<div class="grid4" style="margin-top:12px">
+<div class="icon-box" onclick="openBill('Bijli')"><div style="font-size:20px">💡</div><div style="font-size:9px;font-weight:700;margin-top:4px">Bijli Bill</div></div>
+<div class="icon-box" onclick="openBill('Gas')"><div style="font-size:20px">🔥</div><div style="font-size:9px;font-weight:700;margin-top:4px">Gas Bill</div></div>
+<div class="icon-box" onclick="openBill('WASA')"><div style="font-size:20px">💧</div><div style="font-size:9px;font-weight:700;margin-top:4px">WASA</div></div>
+<div class="icon-box" onclick="showPage('bills')"><div style="font-size:20px">🌐</div><div style="font-size:9px;font-weight:700;margin-top:4px">Internet</div></div>
+<div class="icon-box" onclick="showPage('bills')"><div style="font-size:20px">📤</div><div style="font-size:9px;font-weight:700;margin-top:4px">Upload Bill</div><span class="badge">Fee 10%</span></div>
+<div class="icon-box" onclick="showPage('ads')"><div style="font-size:20px">📺</div><div style="font-size:9px;font-weight:700;margin-top:4px">Ads Earn</div><span class="badge">+5</span></div>
+<div class="icon-box" onclick="showPage('wallet')"><div style="font-size:20px">💸</div><div style="font-size:9px;font-weight:700;margin-top:4px">Payout</div></div>
+<div class="icon-box" onclick="showPage('invite')"><div style="font-size:20px">🎁</div><div style="font-size:9px;font-weight:700;margin-top:4px">Invite</div></div>
 </div>
-<button class="btn" style="background:linear-gradient(135deg,#f59e0b,#ef4444)" onclick="doRegister()">🎁 Gift Box Kholो - 50 Coins + Register</button>
-</div>
-
-<div style="margin-top:12px">
-<div class="feature"><span>🎁</span><span><b>50 Coins FREE</b> - Register pe Gift Box me</span></div>
-<div class="feature"><span>🔥</span><span><b>7 Days Streak</b> - Rozana 5+5 Coins</span></div>
-<div class="feature"><span>💸</span><span><b>Easypaisa/JazzCash Payout</b> - Friday 10-12</span></div>
 </div>
 
-<div id="msg" style="text-align:center;font-size:12px;margin-top:12px;font-weight:700"></div>
+<!-- PAGES -->
+<div id="page-home">
+<div class="card"><h4>🔥 Daily Check-in - 7 Days + Monthly 30 Days</h4><div style="display:flex;gap:5px;margin:10px 0;overflow:auto" id="streakBox"></div><div style="font-size:11px">Monthly: <span id="monthlyTxt">0/30</span> | Today: <span id="todayCheck">Not Done</span></div><button class="btn" onclick="checkIn()">✅ Check-in - 5 + Streak Coins</button></div>
+
+<div class="card" style="border:2px solid #f59e0b;background:#fffbeb"><h4>📺 Community Ads - Apna Ad Lagao</h4><p style="font-size:11px;margin:6px 0">Roz 20 Ads dekho - 5 Coins per Ad = 100 Coins daily!</p><button class="btn" onclick="watchAd()">▶️ Ad Dekho - 5 Coins (<span id="adCnt">0/20</span>)</button><button class="btn-out" onclick="createAd()">➕ Apna Ad Banao - Community</button><div style="margin-top:8px;background:#fff;padding:8px;border-radius:10px;font-size:11px"><b>🔥 Latest Community Ad:</b><br>📢 "Bijli Bill Pay Karo - 10% Fee Bachao!" - Azhan</div></div>
+
+<div class="card"><h4>📢 Recent Bills</h4><div id="recentBills" style="font-size:11px;color:#64748b">Koi bill nahi - Upload karo</div></div>
 </div>
 
-<div class="card" id="appCard" style="display:none">
-<div style="text-align:center"><div style="font-size:40px">🎉</div><h3 id="welcomeName">Welcome!</h3><p style="font-size:12px;color:#64748b" id="welcomeEmail"></p></div>
-<div style="background:linear-gradient(135deg,#00b16a,#0f172a);color:#fff;padding:14px;border-radius:14px;margin-top:12px;display:flex;justify-content:space-between">
-<div><div style="font-size:11px;opacity:.8">Coins Gift Box</div><div style="font-size:22px;font-weight:900" id="coinShow">50 🪙</div></div>
-<div style="text-align:right"><div style="font-size:11px;opacity:.8">Status</div><div style="font-size:12px;background:#ffffff22;padding:4px 10px;border-radius:20px;margin-top:4px">✅ PRO V27</div></div>
-</div>
-<button class="btn" style="background:#ef4444" onclick="logout()">Logout</button>
-<div style="font-size:10px;text-align:center;margin-top:10px;color:#64748b">Easypaisa Style Dashboard - V27 me Full Features Unlock Honge - Bill Upload, Ads, Pay</div>
+<div id="page-bills" style="display:none">
+<div class="card"><h4>🧾 Bill Upload - Professional</h4><select id="billType"><option>Bijli - LESCO</option><option>Gas - SNGPL</option><option>WASA</option><option>Internet - PTCL</option></select><input id="billAmount" type="number" placeholder="Bill Amount - Rs 5000"><input id="billRef" placeholder="Reference No / Consumer No"><input type="file" id="billFile"><p style="font-size:11px;color:#ef4444">Fee 10% - Rs <span id="feeShow">0</span> | You Pay: Rs <span id="payShow">0</span></p><button class="btn" onclick="uploadBill()">📤 Upload Bill - Pay 10% Fee</button></div>
+<div class="card"><h4>📋 My Bills History</h4><div id="billHistory" style="font-size:11px">No bills yet</div></div>
 </div>
 
+<div id="page-ads" style="display:none">
+<div class="card"><h4>📺 Ads Earn - Wallet</h4><p style="font-size:12px">Today: <span id="adCnt2">0/20</span> | Earn Today: <span id="earnToday">0</span> Coins | Total Coins: <span id="earnTotal">0</span></p><button class="btn" onclick="watchAd()">▶️ Watch Ad +5 Coins</button><div style="margin-top:10px"><h5>🎯 Apna Ad Lagao:</h5><input id="adTitle" placeholder="Ad Title - 30% Off"><textarea id="adDesc" placeholder="Ad Description"></textarea><button class="btn-out" onclick="createAd()">Post Ad - 10 Coins</button></div></div>
+</div>
+
+<div id="page-wallet" style="display:none">
+<div class="card"><h4>💸 Easypaisa / JazzCash Payout</h4><div style="background:linear-gradient(135deg,#00b16a,#0f172a);color:#fff;padding:12px;border-radius:12px;display:flex;justify-content:space-between"><div><div style="font-size:11px;opacity:.8">Coins</div><div style="font-size:20px;font-weight:900" id="wCoin">0</div></div><div style="text-align:right"><div style="font-size:11px;opacity:.8">= Rs</div><div style="font-size:20px;font-weight:900" id="wRs">0</div></div></div><p style="font-size:11px;margin:8px 0">Min Payout 500 Coins = Rs 250 | Friday 10-12 AM</p><select><option>Easypaisa</option><option>JazzCash</option></select><input id="payoutNum" placeholder="03XX-XXXXXXX"><input id="payoutAmt" type="number" placeholder="Coins - 500 min"><button class="btn" onclick="payoutReq()">💸 Payout Request</button><div id="payoutHist" style="font-size:11px;margin-top:8px;color:#64748b">No payout yet</div></div>
+</div>
+
+<div id="page-invite" style="display:none">
+<div class="card"><h4>🎁 Invite & Earn - Policy</h4><p style="font-size:11px">Invite dost - 20 Coins per invite!</p><div style="background:#f1f5f9;padding:10px;border-radius:10px;margin:8px 0;display:flex;justify-content:space-between"><span style="font-size:12px;font-weight:700" id="inviteCode">AZHAN-50</span><button style="background:#00b16a;color:#fff;border:none;padding:4px 10px;border-radius:6px;font-size:11px" onclick="navigator.clipboard.writeText(document.getElementById('inviteCode').innerText);alert('Copied!')">Copy</button></div><button class="btn" onclick="alert('Invite link: https://azhan02082024-star.github.io/Kharcha-Bachaw/?ref='+document.getElementById('inviteCode').innerText)">📤 Share Invite Link</button><div style="margin-top:10px;font-size:11px"><b>📜 Policy:</b> No fake invites | 10% Fee on Bill Pay | Friday Payout only | <b>Contact:</b> azhan02082024@gmail.com | <b>Privacy:</b> Data safe, no share | <b>Terms:</b> Coins = Rewards, not cash until payout</div></div>
+</div>
+
+<div id="page-profile" style="display:none">
+<div class="card"><h4>👤 Profile - Settings</h4><div id="profileBox" style="font-size:12px"></div><button class="btn" style="background:#ef4444" onclick="logout()">Logout</button></div>
+<div class="card"><h4>📞 Contact & Policy</h4><p style="font-size:11px">📧 azhan02082024@gmail.com<br>📱 03446082767<br>📜 Policy: 10% fee, Friday payout, Fair use<br>🔒 Privacy: 100% safe<br>📄 Terms: Use honestly</p></div>
+</div>
+
+<div class="bottom"><div class="active" id="b-home" onclick="showPage('home')">🏠<br>Home</div><div id="b-bills" onclick="showPage('bills')">🧾<br>Bills</div><div id="b-ads" onclick="showPage('ads')">📺<br>Ads</div><div id="b-wallet" onclick="showPage('wallet')">💸<br>Wallet</div><div id="b-profile" onclick="showPage('profile')">👤<br>Profile</div></div>
 </div>
 
 <script>
-const P='v27_';
-function switchAuth(t){
- document.getElementById('tabLogin').classList.toggle('active', t==='login');
- document.getElementById('tabReg').classList.toggle('active', t==='reg');
- document.getElementById('loginForm').style.display = t==='login' ? 'block':'none';
- document.getElementById('regForm').style.display = t==='reg' ? 'block':'none';
- document.getElementById('msg').innerText='';
-}
+const P='v29_';
+function sw(t){document.getElementById('tL').classList.toggle('active',t==='login');document.getElementById('tR').classList.toggle('active',t==='reg');document.getElementById('fL').style.display=t==='login'?'block':'none';document.getElementById('fR').style.display=t==='reg'?'block':'none'}
 function getU(){try{return JSON.parse(localStorage.getItem(P+'users')||'[]')}catch(e){return []}}
 function saveU(u){localStorage.setItem(P+'users',JSON.stringify(u))}
-function clearData(){if(confirm('Clear all data?')){localStorage.clear();location.reload()}}
-function forgot(){let e=prompt('Email likho:'); if(!e)return; let us=getU(); let u=us.find(x=>x.email===e.toLowerCase()); if(!u){alert('Email nahi mila');return} let np=prompt('Naya Password:'); if(np){u.pass=np; saveU(us); alert('Password change ho gaya - Ab login karo')}} 
 
-function doRegister(){
- let n=document.getElementById('rName').value.trim();
- let e=document.getElementById('rEmail').value.trim().toLowerCase();
- let m=document.getElementById('rMobile').value.trim();
- let p=document.getElementById('rPass').value.trim();
- let o=document.getElementById('rOtp').value.trim();
- if(!n){alert('👤 Name likho');return}
- if(!e || !e.includes('@')){alert('📧 Sahi Email likho');return}
- if(!p){alert('🔑 Password likho');return}
- if(o!=='123456'){alert('🎁 OTP me 123456 likho - Gift Box Unlock ke liye');return}
- let users=getU();
- if(users.find(x=>x.email===e)){alert('Ye email pehle se hai - Login tab pe jao');switchAuth('login');document.getElementById('lEmail').value=e;return}
- let user={id:Date.now(),name:n,email:e,mobile:m,pass:p};
- users.push(user); saveU(users);
- localStorage.setItem(P+'current',JSON.stringify(user));
- localStorage.setItem(P+e+'_coin','50');
- document.getElementById('msg').innerHTML='✅ <span style="color:#00b16a">Gift Box Khul Gaya! 50 Coins Mile! Login ho raha hai...</span>';
- setTimeout(()=>{startApp()},900);
+function reg(){
+ let n=document.getElementById('rN').value.trim(), e=document.getElementById('rE').value.trim().toLowerCase(), m=document.getElementById('rM').value.trim(), p=document.getElementById('rP').value.trim(), o=document.getElementById('rO').value.trim();
+ if(!n||!e||!p){alert('Name Email Pass likho');return}
+ if(o!=='123456'){alert('OTP 123456 likho');return}
+ let users=getU(); if(users.find(x=>x.email===e)){alert('Already registered - Login karo');sw('login');return}
+ let u={id:Date.now(),name:n,email:e,mobile:m,pass:p}; users.push(u); saveU(users);
+ localStorage.setItem(P+'current',JSON.stringify(u)); localStorage.setItem(P+e+'_coin','50'); localStorage.setItem(P+e+'_streak','[]'); localStorage.setItem(P+e+'_ad','0'); localStorage.setItem(P+e+'_monthly','0'); localStorage.setItem(P+e+'_bills','[]');
+ document.getElementById('msg').innerText='✅ Gift Box Open - Ander ja rahe hain...'; setTimeout(start,800);
 }
-function doLogin(){
- let e=document.getElementById('lEmail').value.trim().toLowerCase();
- let p=document.getElementById('lPass').value.trim();
- if(!e||!p){alert('Email + Password likho');return}
- let users=getU();
- let u=users.find(x=>x.email===e && x.pass===p);
- if(!u){alert('❌ Email ya Password galat hai. Pehle Register karo - Gift Box wala tab');return}
- localStorage.setItem(P+'current',JSON.stringify(u));
- startApp();
-}
-function startApp(){
+function login(){let e=document.getElementById('lE').value.trim().toLowerCase(), p=document.getElementById('lP').value.trim(); let u=getU().find(x=>x.email===e&&x.pass===p); if(!u){alert('Galat Email/Pass');return} localStorage.setItem(P+'current',JSON.stringify(u)); start();}
+
+function start(){
  let cur=null; try{cur=JSON.parse(localStorage.getItem(P+'current')||'null')}catch(e){}
- if(!cur){document.getElementById('authCard').style.display='block';document.getElementById('appCard').style.display='none';return}
- document.getElementById('authCard').style.display='none';document.getElementById('appCard').style.display='block';
- let coin=localStorage.getItem(P+cur.email+'_coin')||'50';
- document.getElementById('welcomeName').innerText='Welcome '+cur.name+'! 🎁';
- document.getElementById('welcomeEmail').innerText=cur.email+' | '+cur.mobile;
- document.getElementById('coinShow').innerText=coin+' 🪙 Gift';
+ if(!cur){document.getElementById('authScreen').style.display='block';document.getElementById('mainApp').style.display='none';return}
+ document.getElementById('authScreen').style.display='none';document.getElementById('mainApp').style.display='block';
+ let coin=parseInt(localStorage.getItem(P+cur.email+'_coin')||'50');
+ let streak=JSON.parse(localStorage.getItem(P+cur.email+'_streak')||'[]');
+ let monthly=parseInt(localStorage.getItem(P+cur.email+'_monthly')||'0');
+ let ad=parseInt(localStorage.getItem(P+cur.email+'_ad')||'0');
+ let bills=JSON.parse(localStorage.getItem(P+cur.email+'_bills')||'[]');
+ document.getElementById('coinTop').innerText=coin+' 🪙'; document.getElementById('uName').innerText=cur.name; document.getElementById('uEmail').innerText=cur.email+' | '+cur.mobile; document.getElementById('uCoin').innerText=coin; document.getElementById('uRs').innerText=Math.floor(coin/2); document.getElementById('wCoin').innerText=coin; document.getElementById('wRs').innerText=Math.floor(coin/2);
+ document.getElementById('streakTxt').innerText=streak.length+' Day'; document.getElementById('monthlyTxt').innerText=monthly+'/30'; document.getElementById('adCnt').innerText=ad+'/20'; document.getElementById('adCnt2').innerText=ad+'/20'; document.getElementById('earnTotal').innerText=coin; document.getElementById('inviteCode').innerText=cur.name.substring(0,5).toUpperCase()+'-'+coin;
+ document.getElementById('profileBox').innerHTML=`<b>Name:</b> ${cur.name}<br><b>Email:</b> ${cur.email}<br><b>Mobile:</b> ${cur.mobile}<br><b>Coins:</b> ${coin} 🪙<br><b>Streak:</b> ${streak.length} Days<br><b>Status:</b> PRO V29 FULL`;
+ let box=document.getElementById('streakBox'); box.innerHTML=''; for(let i=0;i<7;i++){let d=streak.includes('d'+i); box.innerHTML+=`<div style="min-width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;border:2px solid #e2e8f0;${d?'background:#00b16a;color:#fff;border-color:#00b16a':''}">${d?'✓':i+1}</div>`}
+ document.getElementById('recentBills').innerHTML = bills.length ? bills.slice(-3).map(b=>`🧾 ${b.type} - Rs ${b.amount} - ${b.date}`).join('<br>') : 'Koi bill nahi';
+ document.getElementById('billHistory').innerHTML = bills.length ? bills.map(b=>`🧾 ${b.type} | Rs ${b.amount} | Ref ${b.ref} | ${b.date}`).join('<br>') : 'No bills';
+ let last=localStorage.getItem(P+cur.email+'_last'); document.getElementById('todayCheck').innerText = last===new Date().toDateString() ? 'Done ✅' : 'Not Done';
 }
+function checkIn(){let cur=JSON.parse(localStorage.getItem(P+'current')); let today=new Date().toDateString(); if(localStorage.getItem(P+cur.email+'_last')===today){alert('Aaj ho gaya');return} let s=JSON.parse(localStorage.getItem(P+cur.email+'_streak')||'[]'); s.push('d'+s.length); if(s.length>7)s=s.slice(-7); let m=parseInt(localStorage.getItem(P+cur.email+'_monthly')||'0'); m++; let c=parseInt(localStorage.getItem(P+cur.email+'_coin')||'0'); c+=5+s.length; localStorage.setItem(P+cur.email+'_streak',JSON.stringify(s)); localStorage.setItem(P+cur.email+'_monthly',m); localStorage.setItem(P+cur.email+'_coin',c); localStorage.setItem(P+cur.email+'_last',today); start(); alert('✅ '+(5+s.length)+' Coins!')}
+function watchAd(){let cur=JSON.parse(localStorage.getItem(P+'current')); let a=parseInt(localStorage.getItem(P+cur.email+'_ad')||'0'); if(a>=20){alert('20 Ads khatam - Kal aana');return} a++; let c=parseInt(localStorage.getItem(P+cur.email+'_coin')||'0'); c+=5; localStorage.setItem(P+cur.email+'_ad',a); localStorage.setItem(P+cur.email+'_coin',c); start(); alert('✅ 5 Coins Added!')}
+function createAd(){let t=document.getElementById('adTitle'); if(!t||!t.value){if(!confirm('Demo Ad post karun? 10 Coins lagega'))return} let cur=JSON.parse(localStorage.getItem(P+'current')); let c=parseInt(localStorage.getItem(P+cur.email+'_coin')||'0'); if(c<10){alert('10 Coins chahiye');return} c-=10; localStorage.setItem(P+cur.email+'_coin',c); start(); alert('✅ Ad Posted - Community me dikhega!')}
+function uploadBill(){let type=document.getElementById('billType').value, amt=document.getElementById('billAmount').value, ref=document.getElementById('billRef').value; if(!amt||!ref){alert('Amount + Ref likho');return} let cur=JSON.parse(localStorage.getItem(P+'current')); let bills=JSON.parse(localStorage.getItem(P+cur.email+'_bills')||'[]'); bills.push({type:type,amount:amt,ref:ref,date:new Date().toLocaleDateString()}); localStorage.setItem(P+cur.email+'_bills',JSON.stringify(bills)); start(); alert('✅ Bill Uploaded - Fee 10% = Rs '+(amt*0.1));}
+document.getElementById('billAmount')?.addEventListener('input',function(){let v=parseFloat(this.value)||0; document.getElementById('feeShow').innerText=(v*0.1).toFixed(0); document.getElementById('payShow').innerText=(v*1.1).toFixed(0);});
+function payoutReq(){let num=document.getElementById('payoutNum').value, amt=document.getElementById('payoutAmt').value; if(!num||!amt){alert('Number + Coins likho');return} if(parseInt(amt)<500){alert('Min 500 Coins');return} let cur=JSON.parse(localStorage.getItem(P+'current')); let c=parseInt(localStorage.getItem(P+cur.email+'_coin')||'0'); if(parseInt(amt)>c){alert('Coins kam hain');return} c-=parseInt(amt); localStorage.setItem(P+cur.email+'_coin',c); document.getElementById('payoutHist').innerHTML=`✅ Request: ${amt} Coins to ${num} - Pending Friday 10-12`; start(); alert('✅ Payout Request - Friday ko milega!')}
+function openBill(t){showPage('bills'); document.getElementById('billType').value=t+' - ...'}
+function showPage(p){['home','bills','ads','wallet','invite','profile'].forEach(x=>{let el=document.getElementById('page-'+x); if(el)el.style.display=x===p?'block':'none'}); document.querySelectorAll('.bottom div').forEach(d=>d.classList.remove('active')); let b=document.getElementById('b-'+p); if(b)b.classList.add('active')}
 function logout(){localStorage.removeItem(P+'current');location.reload()}
-startApp();
+start();
 </script>
 </body>
-         </html>
+</html>
